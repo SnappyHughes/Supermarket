@@ -1,0 +1,8 @@
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\bin\Debug\Supermarket.Test.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\bin\Debug\Supermarket.Test.pdb
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\bin\Debug\Supermarket.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\bin\Debug\Supermarket.pdb
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\obj\Debug\Supermarket.Test.csprojResolveAssemblyReference.cache
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\obj\Debug\Supermarket.Test.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket.Test\obj\Debug\Supermarket.Test.pdb

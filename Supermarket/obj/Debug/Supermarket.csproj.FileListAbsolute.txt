@@ -1,0 +1,5 @@
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket\bin\Debug\Supermarket.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket\bin\Debug\Supermarket.pdb
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket\obj\Debug\Supermarket.csprojResolveAssemblyReference.cache
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket\obj\Debug\Supermarket.dll
+c:\users\cameron\documents\visual studio 2015\Projects\Supermarket\Supermarket\obj\Debug\Supermarket.pdb
