@@ -9,14 +9,40 @@ namespace Supermarket
         
         private ItemPricing _itemPricing;
 
-        public Checkout(ItemPricing itemPricing)
+        private Discount _discount;
+
+        public Checkout(ItemPricing itemPricing, Discount discount)
         {
             _itemPricing = itemPricing;
+            _discount = discount;
         }
 
         public void Scan(string item)
         {
             Total += _itemPricing.GetPrice(item);
+            
+            if(item == _discount.SkuOfItem)
+            {
+                _discount.CurrentCount++;
+
+                if (_discount.CurrentCount == _discount.QuantityNeeded)
+                    Total -= _discount.DiscountAmount;
+            }
+        }
+    }
+
+    public class Discount
+    {
+        public string SkuOfItem { get; private set; }
+        public int QuantityNeeded { get; private set; }
+        public int DiscountAmount { get; private set; }
+        public int CurrentCount { get; set; }
+
+        public Discount(string skuOfItem, int quantityNeeded, int discountAmount)
+        {
+            SkuOfItem = skuOfItem;
+            QuantityNeeded = quantityNeeded;
+            DiscountAmount = discountAmount;
         }
     }
 
