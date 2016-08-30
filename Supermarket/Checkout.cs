@@ -1,26 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Supermarket
 {
     public class Checkout
     {
         public int Total { get; private set; }
+        
+        private ItemPricing _itemPricing;
 
-        private Item _itemA;
-        private Item _itemB;
-
-        public Checkout(Item itemA, Item itemB)
+        public Checkout(ItemPricing itemPricing)
         {
-            _itemA = itemA;
-            _itemB = itemB; 
+            _itemPricing = itemPricing;
         }
 
         public void Scan(string item)
         {
-            if(item == _itemA.Sku)
-                Total = _itemA.Price;
-            if (item == _itemB.Sku)
-                Total = _itemB.Price;
+            Total += _itemPricing.GetPrice(item);
+        }
+    }
+
+    public class ItemPricing
+    {
+        public List<Item> Rules { get; private set; }
+
+        public ItemPricing()
+        {
+            if (Rules == null)
+                Rules = new List<Item>();
+        }
+
+        public void AddRule(Item newItem)
+        {
+            Rules.Add(newItem);
+        }
+
+        public int GetPrice(string skuOfItem)
+        {
+            return Rules.Find(i => i.Sku == skuOfItem).Price;
         }
     }
 
