@@ -23,6 +23,9 @@ namespace Supermarket.Test
 
         public ItemPricing _itemPricing = new ItemPricing();
 
-        public Discount _discount = new Discount(_skuOfA, 3, 20);
+        public Discount _discountA = new Discount(_skuOfA, 3, 20);
+        public Discount _discountB = new Discount(_skuOfB, 2, 10);
+
+        public DiscountSet _discountSet = new DiscountSet();
     }
 }

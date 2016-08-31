@@ -9,25 +9,52 @@ namespace Supermarket
         
         private ItemPricing _itemPricing;
 
-        private Discount _discount;
+        private DiscountSet _discountRules;
 
-        public Checkout(ItemPricing itemPricing, Discount discount)
+        public Checkout(ItemPricing itemPricing, DiscountSet discountSet)
         {
             _itemPricing = itemPricing;
-            _discount = discount;
+            _discountRules = discountSet;
         }
 
         public void Scan(string item)
         {
             Total += _itemPricing.GetPrice(item);
-            
-            if(item == _discount.SkuOfItem)
-            {
-                _discount.CurrentCount++;
 
-                if (_discount.CurrentCount == _discount.QuantityNeeded)
-                    Total -= _discount.DiscountAmount;
+            CheckForDiscount(item);
+        }
+
+        private void CheckForDiscount(string item)
+        {
+            var discount = _discountRules.Rules.Find(d => d.SkuOfItem == item);
+
+            if (discount != null)
+            {
+                discount.CurrentCount++;
+                if (discount.CurrentCount % discount.QuantityNeeded == 0)
+                    Total -= discount.DiscountAmount;
             }
+        }
+    }
+
+    public class DiscountSet
+    {
+        public List<Discount> Rules { get; private set; }
+
+        public DiscountSet()
+        {
+            if (Rules == null)
+                Rules = new List<Discount>();
+        }
+
+        public void AddRule(Discount newDiscount)
+        {
+            Rules.Add(newDiscount);
+        }
+
+        public Discount GetDiscount(string skuOfItem)
+        {
+            return Rules.Find(d => d.SkuOfItem == skuOfItem);
         }
     }
 
