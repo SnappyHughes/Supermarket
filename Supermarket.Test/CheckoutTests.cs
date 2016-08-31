@@ -78,5 +78,32 @@ namespace Supermarket.Test
 
             Assert.AreEqual(50, checkout.Total);
         }
+
+        [TestMethod]
+        public void GivenIScanSixSkusOfAItShouldGiveTotalOf260()
+        {
+            var checkout = new Checkout(_itemPricing, _discountSet);
+            _itemPricing.AddRule(_itemA);
+            _discountSet.AddRule(_discountA);
+
+            checkout.Scan(_skuOfA);
+            checkout.Scan(_skuOfA);
+            checkout.Scan(_skuOfA);
+            checkout.Scan(_skuOfA);
+            checkout.Scan(_skuOfA);
+            checkout.Scan(_skuOfA);
+
+            Assert.AreEqual(260, checkout.Total);
+        }
+
+        [TestMethod]
+        public void GivenIScanAnInvalidSkuItShouldGiveTotalOf0()
+        {
+            var checkout = new Checkout(_itemPricing, _discountSet);
+
+            checkout.Scan("D");
+
+            Assert.AreEqual(0, checkout.Total);
+        }
     }
 }

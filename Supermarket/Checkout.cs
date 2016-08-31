@@ -90,7 +90,10 @@ namespace Supermarket
 
         public int GetPrice(string skuOfItem)
         {
-            return Rules.Find(i => i.Sku == skuOfItem).Price;
+            if (Rules.Find(i => i.Sku == skuOfItem) != null)
+                return Rules.Find(i => i.Sku == skuOfItem).Price;
+            else
+                return 0;
         }
     }
 
